@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tantrix Tile Encoding Challenge</title>
+  </head>
+  <body>
+    <h1>Tantrix Tile Encoding Challenge</h1>
+    <p>I'm trying to make Tantrix, but I need the tiles for it.
+       And I would get tired if I would just make them myself.
+       So I thought, if I ask other people to do it for me,
+       then I would be able to get to the coding straight
+       away without me making the dataset!</p>
+    <h2>Format</h2>
+    <img src="img1.png"></img>
+    <p>So the 1st and 2nd position are in one question,
+       and the color in the other one.
+       These questions are there for each link.
+       The layering order of the links is asked in the
+       last question.
+       If the order isn't selected, the order is simply
+       1 2 3.</p>
+    <h2>Links</h2>
+    <a href="https://goo.gl/forms/FQexwGZRxQcTPIeC2">Link to the form with all of the questions</a><br>
+    <a href="https://en.wikipedia.org/wiki/Tantrix#Tileset">Link to the Tantrix tileset</a><br>
+    <a>Link to my video on YouTube explainig this (not there yet)</a>
+    <p>Tile to make: tile #<span id="tilenumber"></span>
+    <script src="tabletop.min.js"></script>
+    <script>
+      window.onload = pageLoaded;
+
+      function pageLoaded() {
+        var settings = {
+          key: 'https://docs.google.com/spreadsheets/d/1DF19x791Lbzn7WwFjv5ds0E7R5GEKbY5UXvOiaLRX5U/edit#gid=1191258178',
+          callback: dataLoaded,
+          simpleSheet: true
+        };
+        Tabletop.init(settings);
+      }
+
+      function dataLoaded(data) {
+        tilenumber.innerHTML = data.length + 1;
+      }
+    </script>
+  </body>
+</html>
